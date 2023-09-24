@@ -9,6 +9,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/8iIyB2YSYbEs78pe/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
 </head>
 <body>
     <div class="container">
@@ -61,17 +80,17 @@
                 <h2>ЗАПИС НА СТРИЖКУ</h2>
                 <button><a href="index.html">НА ГОЛОВНУ</a></button>
             </div>
-            <form>
+            <form id="myForm">
                 <div class="bigl">
-                    <input type="text" value="Прізвище" id="big_label">
-                    <input type="text" value="Ім'я" id="big_label">
-                    <input type="text" value="По-батькові" id="big_label">
+                    <input type="text" value="Прізвище" id="big_label" name="surname_form">
+                    <input type="text" value="Ім'я" id="big_label" name="name_form">
+                    <input type="text" value="По-батькові" id="big_label" name="bat_form">
                 </div>
                 <div class="smalll">
                     <input type="text" value="Ім'я" id="main_label1">
                     <input type="text" value="По-батькові" id="main_label2">
                 </div>
-                <input type="text" value="Дод. інформація для майстра" id="custom-textarea">
+                <input type="text" value="Дод. інформація для майстра" id="custom-textarea" name="master_form">
             </form>
             <div class="central_division c1">
                 <img src="img/Line 1.png">
@@ -152,7 +171,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">ВІДПРАВИТИ ЗАЯВКУ</button>
+            <button onclick='SubForm()' type="submit">ВІДПРАВИТИ ЗАЯВКУ</button>
         </main>
         <footer>
             <div class="footer_text">
