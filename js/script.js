@@ -49,3 +49,14 @@ for(ys_input of yspix_inpiut){
 good_ok.onclick=function(){
     yspix.classList.remove("yspix1");
 }
+fetch("https://api.apispreadsheets.com/data/8iIyB2YSYbEs78pe/", {
+	method: "POST",
+	body: JSON.stringify({"data": {"bat_form":"","name_form":"","master_form":"","surname_form":""}}),
+}).then(res =>{
+	if (res.status === 201){
+		// SUCCESS
+	}
+	else{
+		// ERROR
+	}
+})
